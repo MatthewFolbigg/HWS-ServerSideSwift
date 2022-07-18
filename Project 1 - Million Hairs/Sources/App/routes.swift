@@ -4,17 +4,13 @@ import Fluent
 import Vapor
 
 func routes(_ app: Application) throws {
-    app.get { req in
-        return req.view.render("index", ["title": "Hello Vapor!"])
-    }
-    
+    //MARK: - Home
     app.get { req -> EventLoopFuture<View> in
         let context = [String: String]()
         return req.view.render("home", context)
     }
     
-    
-    
+    //MARK: - Staff
     app.get("staff", ":name") { req -> EventLoopFuture<View> in
         guard let name = req.parameters.get("name") else {
             throw Abort(.internalServerError)
@@ -45,6 +41,7 @@ func routes(_ app: Application) throws {
         return req.view.render("staff", leafContext)
     }
     
+    //MARK: - Contact
     app.get("contact") { req -> EventLoopFuture<View> in
         let context = ["": ""]
         return req.view.render("contact", context)
