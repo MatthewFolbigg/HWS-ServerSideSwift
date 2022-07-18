@@ -1,0 +1,37 @@
+#extend("master"):
+
+    #export("title"): Staff #endexport
+
+    #export("h1"):
+        #if(name):
+            #capitalized(name)
+        #else:
+            Unknown staff member
+        #endif
+    #endexport
+        
+        
+    #export("body"):
+        #if(name):
+            <p>#(bio)</p>
+        #else:
+            <p>We didn't recognize that person.</p>
+        #endif
+    #endexport
+    
+#endextend
+
+
+<html>
+    <body>
+        <p>Choose a staff member to view:</p>
+        
+        <ul>
+            #for(name in allNames):
+                <li><a href="http://localhost:8080/staff/#(name)">#capitalized(name)</a></li>
+            #endfor
+        </ul>
+
+
+    </body>
+</html>

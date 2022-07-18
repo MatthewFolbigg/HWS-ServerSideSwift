@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>#import("title") – Million Hairs</title>
+    </head>
+
+    <body>
+        <h1>#import("h1")</h1>
+        #import("body")
+        
+        #extend("footer")
+    </body>
+
+</html>
